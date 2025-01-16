@@ -6,6 +6,7 @@ const EmployeeTable = () => {
   const [employees, setEmployees] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredEmployees, setFilteredEmployees] = useState([]);
+  const [departments, setDepartments] = useState([]);
 
   useEffect(() => {
     const fetchEmployees = async () => {
@@ -17,7 +18,10 @@ const EmployeeTable = () => {
         console.error('Error fetching employee data:', error);
       }
     };
+    
+
     fetchEmployees();
+    
   }, []);
 
   const handleSearch = (e) => {
@@ -42,13 +46,18 @@ const EmployeeTable = () => {
 
       {/* Search Bar */}
       <div className="search-bar">
+      
+        
         <input
           type="text"
           value={searchTerm}
           onChange={handleSearch}
           placeholder="Search by Name or Department"
         />
+
       </div>
+     
+
 
       {/* Employee Table */}
       {filteredEmployees.length === 0 ? (
@@ -66,7 +75,6 @@ const EmployeeTable = () => {
             {filteredEmployees.map((employee) => (
               <tr key={employee._id}>
                 <td>{employee.name || 'N/A'}</td>
-                
                 <td>{employee.department?.name || 'N/A'}</td>
                 <td>{employee.address || 'N/A'}</td>
               </tr>

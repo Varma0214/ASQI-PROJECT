@@ -21,8 +21,6 @@ router.post('/', async (req, res) => {
 });
 
 // Get Employees
-
-
 router.get('/', async (req, res) => {
   const query = {};
   

@@ -38,7 +38,7 @@ const handleSubmit = async (e) => {
 };
 
 return (
-  <div id="department-container">
+  <div className="employee-container">
     <h1> Add Employee </h1>
     <form onSubmit={handleSubmit}>
       <div className="form-group">

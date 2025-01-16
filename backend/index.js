@@ -5,11 +5,12 @@ require('dotenv').config();
 const departmentRoutes = require('./routes/departmentRoutes');
 const employeeRoutes = require('./routes/employeeRoutes');
 const mongoose = require('mongoose');
-
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
+
 const mongo_url=process.env.MONGO_CONN;
+
 mongoose.connect(mongo_url)
     .then(()=>{
         console.log('MongoDB Connected...')
